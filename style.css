@@ -30,8 +30,8 @@ body {
     border: 8px solid white;
     background-color: #f0efef;
     overflow: hidden;
-    -webkit-transition: all 0.8s linear;
-    transition: all 0.8s linear;
+    -webkit-transition: background 0.8s linear;
+    transition: background 0.8s linear;
 }
 
 .sun {
@@ -44,8 +44,8 @@ body {
     border-radius: 50%;
     margin: 0 auto;
     left: 180px;
-    -webkit-transition: all 0.8s linear;
-    transition: all 0.8s linear;
+    -webkit-transition: background 0.8s linear;
+    transition: background 0.8s linear;
 }
 
 .moon {
@@ -181,7 +181,7 @@ label {
 
 .switch .button {
     -webkit-transition: all 0.5s cubic-bezier(0, 0, 0, 1.07);
-    transition: all 0.5s linear;
+    transition: all 0.5s linear;    
 }
 
 input[type=checkbox]:checked ~ .switch .button {
