@@ -1,2 +1,2 @@
 # Foxy
-Simple and cute animation  ^ . ^
+Fully created by CSS
