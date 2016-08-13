@@ -10,7 +10,6 @@ body {
 }
 
 .container {
-    display: block;
     position: absolute;
     width: 350px;
     height: 350px;
@@ -27,10 +26,9 @@ body {
     height: 300px;
     margin: 0 auto;
     border-radius: 50%;
-    border: 8px solid white;
     background-color: #f0efef;
     overflow: hidden;
-    -webkit-transition: background 0.8s linear;
+    transform: translate3d(0, 0, 0);
     transition: background 0.8s linear;
 }
 
@@ -44,29 +42,18 @@ body {
     border-radius: 50%;
     margin: 0 auto;
     left: 180px;
-    -webkit-transition: background 0.8s linear;
-    transition: background 0.8s linear;
-}
-
-.moon {
-    position: relative;
-    height: 30px;
-    width: 30px;
-    background: #fff;
-    border-radius: 50%;
-    display: none;
+    transition: transform 0.8s linear, background 0.8s linear;
 }
 
 .the-fox {
-    display: block;
     position: absolute;
-    bottom: 0px;
+    bottom: 0;
     left: 15px;
     height: 140px;
     margin: 0 40px;
     background: rgb(235, 66, 20);
-    -webkit-transition: bottom 0.5s;
-    transition: bottom 0.5s;
+    transform: translate3d(0, 0, 0);
+    transition: transform 0.5s;
 }
 
 .the-fox:before {
@@ -78,26 +65,22 @@ body {
     left: 0;
     position: absolute;
     content: "";
-    -webkit-transition: bottom 0.5s;
-    transition: bottom 0.5s;
 }
 
 .the-fox:after {
     width: 0;
     height: 0;
-    border-right: 0px solid transparent;
+    border-right: 0 solid transparent;
     border-left: 70px solid transparent;
     border-bottom: 50px solid rgb(235, 66, 20);
     top: -40px;
     right: 0;
     position: absolute;
     content: "";
-    -webkit-transition: bottom 0.5s;
-    transition: bottom 0.5s;
 }
 
 .window:hover .the-fox {
-    bottom: -110px;
+    transform: translate3d(0, 110px, 0);
 }
 
 .the-fox .eyes {
@@ -159,17 +142,17 @@ label {
     margin: 0 auto;
 }
 
-.toggler {
+.toggle {
     display: block;
     position: relative;
     height: 50px;
-    width: 125px;
+    width: 130px;
     margin: 0 auto 30px auto;
     background-color: #f0efef;
     border-radius: 20%;
 }
 
-.toggler .button {
+.toggle .button {
     position: absolute;
     border-radius: 100%;
     background: #ffd42a;
@@ -179,14 +162,12 @@ label {
     left: 7px;
 }
 
-.toggler .button {
-    -webkit-transition: all 0.5s cubic-bezier(0, 0, 0, 1.07);
-    transition: all 0.5s linear;    
+.toggle .button {
+    transition: transform 0.5s linear;
 }
 
-input[type=checkbox]:checked ~ .toggler .button {
-    position: absolute;
-    left: 85px;
+input[type=checkbox]:checked ~ .toggle .button {
+    transform: translate3d(75px, 0, 0);
 }
 
 input[type=checkbox]:checked ~ .window {
@@ -195,15 +176,12 @@ input[type=checkbox]:checked ~ .window {
 
 input[type=checkbox]:checked ~ .window .sun {
     background-color: white;
-    left: 50px;
-    top: 40px;
-    width: 45px;
-    height: 45px;
+    transform: translate3d(-140px, 15px, 0);
 }
 
 input[type=checkbox]:checked ~ .window .the-fox {
     background: #C74628;
-    bottom: -120px;
+    transform: translate3d(0, 110px, 0);
 }
 
 input[type=checkbox]:checked ~ .window .the-fox:after {
@@ -214,10 +192,9 @@ input[type=checkbox]:checked ~ .window .the-fox:before {
     border-bottom-color: #C74628;
 }
 
-.sun-toggler {
+.sun-toggle-tip {
     position: absolute;
     top: -35px;
-    left: 6px;
 }
 .tip {
     text-align: center;
