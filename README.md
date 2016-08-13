@@ -1,2 +1,3 @@
 # Animated Foxy
-Fully created by CSS 
+
+Fully created by CSS
