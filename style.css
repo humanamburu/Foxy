@@ -132,11 +132,11 @@ body {
 .the-fox .white-part {
     display: block;
     position: relative;
-    width: 0px;
-    height: 0px;
+    width: 0;
+    height: 0;
     top: 65px;
     border-style: solid;
-    border-width: 80px 70px 0px 60px;
+    border-width: 80px 70px 0 60px;
     border-color: #ffffff transparent transparent transparent;
 }
 
@@ -150,7 +150,7 @@ label {
     height: 80px;
     width: 100px;
     display: block;
-    top: 0px;
+    top: 0;
     bottom: 0;
     right: 0;
     left: 0;
@@ -159,17 +159,17 @@ label {
     margin: 0 auto;
 }
 
-.switch {
+.toggler {
     display: block;
     position: relative;
     height: 50px;
     width: 125px;
-    margin: 0px auto 30px auto;
+    margin: 0 auto 30px auto;
     background-color: #f0efef;
     border-radius: 20%;
 }
 
-.switch .button {
+.toggler .button {
     position: absolute;
     border-radius: 100%;
     background: #ffd42a;
@@ -179,12 +179,12 @@ label {
     left: 7px;
 }
 
-.switch .button {
+.toggler .button {
     -webkit-transition: all 0.5s cubic-bezier(0, 0, 0, 1.07);
     transition: all 0.5s linear;    
 }
 
-input[type=checkbox]:checked ~ .switch .button {
+input[type=checkbox]:checked ~ .toggler .button {
     position: absolute;
     left: 85px;
 }
@@ -214,12 +214,12 @@ input[type=checkbox]:checked ~ .window .the-fox:before {
     border-bottom-color: #C74628;
 }
 
-.sun-switcher {
+.sun-toggler {
     position: absolute;
     top: -35px;
     left: 6px;
 }
-.about {
+.tip {
     text-align: center;
     padding: 20px;
 }
