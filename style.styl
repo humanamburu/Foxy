@@ -1,0 +1,126 @@
+//f - font
+f-size        = 20px
+f-weight      = 600
+
+//colors
+window-background  = #f0efef
+sun-background     = #ffd42a
+fox-background     = #EB4214
+eyes-color         = white
+nose-background    = black
+
+// w, h, r === width, height, radius
+container-w   = 350px
+container-h   = 350px
+fox-h         = 140px
+fox-ear-w     = 70px
+fox-ear-h     = 50px
+fox-eye-r     = 7.5px
+fox-nose-r    = 5px
+window-r      = 150px
+sun-r         = 30px
+
+.absolute-center
+  position absolute
+  margin auto
+  top 0
+  right 0
+  bottom 0
+  left 0
+
+circle(radius)
+  border-radius 50%
+  width radius * 2
+  height radius * 2
+
+@font-face
+  font-family Lato Regular
+  font-style normal
+  src url(fonts/Lato-Hairline.ttf)
+
+.container
+  font-family Lato Regular
+  font-size f-size
+  font-weight 600
+  width container-w
+  height container-h
+
+.window
+  margin 0 auto
+  circle(window-r)
+  background-color window-background
+  overflow hidden
+  //move to separate layer via translate 3D
+  transform translate3d(0, 0, 0)
+  transition background 800ms
+
+  &:hover .the-fox
+    transform translate3d(0, round(fox-h * 0.8), 0);
+
+
+.sun
+  display inline-block
+  position relative
+  top round(window-r * 0.25)
+  left round(window-r * 1.2)
+  circle(sun-r)
+  background-color sun-background
+  transition transform 0.8s linear, background 0.8s linear
+
+.the-fox
+  position absolute
+  left round(window-r * 0.35)
+  bottom 0
+  height fox-h
+  background-color fox-background
+  //remove repaint after and of animation
+  transform translate3d(0, 0, 0)
+  transition transform 0.5s
+
+  &:before
+    content ''
+    position absolute
+    border-right fox-ear-w solid transparent
+    border-bottom fox-ear-h solid fox-background
+    top -40px
+
+  &:after
+    content ''
+    position absolute
+    border-left fox-ear-w solid transparent
+    border-bottom fox-ear-h solid fox-background
+    top -40px
+    right 0
+
+  .eyes
+    position absolute
+    background-color eyes-color
+    circle(fox-eye-r)
+    bottom 90px
+
+    .left
+      left 30px
+
+    .right
+      right 30px
+
+  .nose
+    position relative
+    circle(fox-nose-r)
+    background-color nose-background
+    margin 0 auto
+    top 45px
+
+
+
+
+
+
+
+
+
+
+
+
+
+

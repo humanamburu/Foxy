@@ -1,0 +1,91 @@
+.absolute-center {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+@font-face {
+  font-family: Lato Regular;
+  font-style: normal;
+  src: url("fonts/Lato-Hairline.ttf");
+}
+.container {
+  font-family: Lato Regular;
+  font-size: 20px;
+  font-weight: 600;
+  width: 350px;
+  height: 350px;
+}
+.window {
+  margin: 0 auto;
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+  background-color: #f0efef;
+  overflow: hidden;
+  transform: translate3d(0, 0, 0);
+  transition: background 800ms;
+}
+.window:hover .the-fox {
+  transform: translate3d(0, 112px, 0);
+}
+.sun {
+  display: inline-block;
+  position: relative;
+  top: 38px;
+  left: 180px;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  background-color: #ffd42a;
+  transition: transform 0.8s linear, background 0.8s linear;
+}
+.the-fox {
+  position: absolute;
+  left: 53px;
+  bottom: 0;
+  height: 140px;
+  background-color: #eb4214;
+  transform: translate3d(0, 0, 0);
+  transition: transform 0.5s;
+}
+.the-fox:before {
+  content: '';
+  position: absolute;
+  border-right: 70px solid transparent;
+  border-bottom: 50px solid #eb4214;
+  top: -40px;
+}
+.the-fox:after {
+  content: '';
+  position: absolute;
+  border-left: 70px solid transparent;
+  border-bottom: 50px solid #eb4214;
+  top: -40px;
+  right: 0;
+}
+.the-fox .eyes {
+  position: absolute;
+  background-color: #fff;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  bottom: 90px;
+}
+.the-fox .eyes .left {
+  left: 30px;
+}
+.the-fox .eyes .right {
+  right: 30px;
+}
+.the-fox .nose {
+  position: relative;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  background-color: #000;
+  margin: 0 auto;
+  top: 45px;
+}
