@@ -1,24 +1,29 @@
 //f - font
-f-size        = 20px
-f-weight      = 600
+f-size    = 20px
+f-weight  = 600
 
 //colors
-window-background  = #f0efef
-sun-background     = #ffd42a
-fox-background     = #EB4214
-eyes-color         = white
-nose-background    = black
+window-background    = #f0efef
+sun-background       = #ffd42a
+fox-background       = #EB4214
+eyes-color           = white
+nose-background      = black
+white-part-color     = white
 
 // w, h, r === width, height, radius
-container-w   = 350px
-container-h   = 350px
-fox-h         = 140px
-fox-ear-w     = 70px
-fox-ear-h     = 50px
-fox-eye-r     = 7.5px
-fox-nose-r    = 5px
-window-r      = 150px
-sun-r         = 30px
+container-w           = 350px
+container-h           = 350px
+fox-h                 = 140px
+fox-ear-w             = 70px
+fox-ear-h             = 50px
+fox-ears-position     = -40px;
+fox-eye-r             = 7.5px
+fox-nose-r            = 5px
+fox-nose-position     = 45px
+window-r              = 150px
+sun-r                 = 30px
+white-part-position   = 60px;
+white-part-dimensions = 80px 70px 0 60px
 
 .absolute-center
   position absolute
@@ -73,7 +78,7 @@ circle(radius)
   bottom 0
   height fox-h
   background-color fox-background
-  //remove repaint after and of animation
+  //remove repaint after end of animation
   transform translate3d(0, 0, 0)
   transition transform 0.5s
 
@@ -82,14 +87,14 @@ circle(radius)
     position absolute
     border-right fox-ear-w solid transparent
     border-bottom fox-ear-h solid fox-background
-    top -40px
+    top fox-ears-position
 
   &:after
     content ''
     position absolute
     border-left fox-ear-w solid transparent
     border-bottom fox-ear-h solid fox-background
-    top -40px
+    top fox-ears-position
     right 0
 
   .eyes
@@ -109,7 +114,15 @@ circle(radius)
     circle(fox-nose-r)
     background-color nose-background
     margin 0 auto
-    top 45px
+    top fox-nose-position
+
+   .white-part
+     position relative
+     top white-part-position
+     border-style solid
+     border-width white-part-dimensions
+     border-color: white-part-color transparent transparent transparent
+
 
 
 
