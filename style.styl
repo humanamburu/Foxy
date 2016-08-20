@@ -3,12 +3,16 @@ f-size    = 20px
 f-weight  = 600
 
 //colors
-window-background    = #f0efef
-sun-background       = #ffd42a
-fox-background       = #EB4214
-eyes-color           = white
-nose-background      = black
-white-part-color     = white
+window-background       = #f0efef
+window-night-background = #222
+sun-background          = #ffd42a
+fox-background          = #EB4214
+night-fox-background    = #C74628
+eyes-color              = white
+nose-background         = black
+white-part-color        = white
+toggle-background       = white
+moon-background         = white
 
 // w, h, r === width, height, radius
 container-w           = 350px
@@ -24,6 +28,11 @@ window-r              = 150px
 sun-r                 = 30px
 white-part-position   = 60px;
 white-part-dimensions = 80px 70px 0 60px
+toggle-h              = 50px
+toggle-w              = 130px
+toggle-button-r       = 16px
+toggle-button-top     = 9px
+toggle-button-left    = 7px
 
 .absolute-center
   position absolute
@@ -123,17 +132,50 @@ circle(radius)
      border-width white-part-dimensions
      border-color: white-part-color transparent transparent transparent
 
+.toggle-checkbox
+  position absolute
+  visibility hidden
 
+  &:checked .button
+    transform translate3d(toggle-w - toggle-button-left * 2 - toggle-button-r * 2, 0, 0)
 
+  &:checked .window
+    background-color window-night-background
 
+  &:checked .sun
+    background-color moon-background
+    transform translate3d(-1 * window-r, 0, 0)
 
+  &:checked .the-fox
+    background-color night-fox-background
+    transform translate3d(0, round(fox-h * 0.8), 0)
 
+  &:checked .the-fox:after
+    background-color night-fox-background
 
+  &:checked .the-fox:before
+    background-color night-fox-background
 
+.toggle-checkbox-label
+  //hack
+  z-index 999
+  height toggle-h
+  width toggle-w
+  cursor pointer
 
+.toggle
+  position relative
+  height toggle-h
+  width toggle-w
+  background-color toggle-background
+  border-radius 20%
+  margin 0 auto 30px auto
 
-
-
-
-
+  .button
+    position absolute
+    circle(toggle-button-r)
+    background-color sun-background
+    top 9px
+    left 7px
+    transition transform 0.5s linear
 
