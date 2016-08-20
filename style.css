@@ -74,10 +74,10 @@
   height: 15px;
   bottom: 90px;
 }
-.the-fox .eyes .left {
+.the-fox .eyes.left {
   left: 30px;
 }
-.the-fox .eyes .right {
+.the-fox .eyes.right {
   right: 30px;
 }
 .the-fox .nose {
@@ -100,37 +100,38 @@
   position: absolute;
   visibility: hidden;
 }
-.toggle-checkbox:checked .button {
+.toggle-checkbox:checked ~ .toggle .button {
   transform: translate3d(84px, 0, 0);
 }
-.toggle-checkbox:checked .window {
+.toggle-checkbox:checked ~ .window {
   background-color: #222;
 }
-.toggle-checkbox:checked .sun {
+.toggle-checkbox:checked ~ .window .sun {
   background-color: #fff;
-  transform: translate3d(-150px, 0, 0);
+  transform: translate3d(-120px, 0, 0);
 }
-.toggle-checkbox:checked .the-fox {
+.toggle-checkbox:checked ~ .window .the-fox {
   background-color: #c74628;
   transform: translate3d(0, 112px, 0);
 }
-.toggle-checkbox:checked .the-fox:after {
-  background-color: #c74628;
+.toggle-checkbox:checked ~ .window .the-fox:after {
+  border-bottom-color: #c74628;
 }
-.toggle-checkbox:checked .the-fox:before {
-  background-color: #c74628;
+.toggle-checkbox:checked ~ .window .the-fox:before {
+  border-bottom-color: #c74628;
 }
 .toggle-checkbox-label {
   z-index: 999;
   height: 50px;
   width: 130px;
   cursor: pointer;
+  margin: 0 auto 30px auto;
 }
 .toggle {
   position: relative;
   height: 50px;
   width: 130px;
-  background-color: #fff;
+  background-color: #f0efef;
   border-radius: 20%;
   margin: 0 auto 30px auto;
 }
@@ -143,4 +144,12 @@
   top: 9px;
   left: 7px;
   transition: transform 0.5s linear;
+}
+.sun-toggle-tip {
+  position: absolute;
+  top: -35px;
+}
+.tip {
+  text-align: center;
+  padding: 20px;
 }

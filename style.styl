@@ -11,7 +11,7 @@ night-fox-background    = #C74628
 eyes-color              = white
 nose-background         = black
 white-part-color        = white
-toggle-background       = white
+toggle-background       = #f0efef
 moon-background         = white
 
 // w, h, r === width, height, radius
@@ -112,10 +112,10 @@ circle(radius)
     circle(fox-eye-r)
     bottom 90px
 
-    .left
+    &.left
       left 30px
 
-    .right
+    &.right
       right 30px
 
   .nose
@@ -136,25 +136,25 @@ circle(radius)
   position absolute
   visibility hidden
 
-  &:checked .button
+  &:checked ~ .toggle .button
     transform translate3d(toggle-w - toggle-button-left * 2 - toggle-button-r * 2, 0, 0)
 
-  &:checked .window
+  &:checked ~ .window
     background-color window-night-background
 
-  &:checked .sun
+  &:checked ~ .window .sun
     background-color moon-background
-    transform translate3d(-1 * window-r, 0, 0)
+    transform translate3d(-1 * round(window-r * 0.8), 0, 0)
 
-  &:checked .the-fox
+  &:checked ~ .window .the-fox
     background-color night-fox-background
     transform translate3d(0, round(fox-h * 0.8), 0)
 
-  &:checked .the-fox:after
-    background-color night-fox-background
+  &:checked ~ .window .the-fox:after
+    border-bottom-color night-fox-background
 
-  &:checked .the-fox:before
-    background-color night-fox-background
+  &:checked ~ .window .the-fox:before
+    border-bottom-color night-fox-background
 
 .toggle-checkbox-label
   //hack
@@ -162,6 +162,7 @@ circle(radius)
   height toggle-h
   width toggle-w
   cursor pointer
+  margin 0 auto 30px auto
 
 .toggle
   position relative
@@ -178,4 +179,12 @@ circle(radius)
     top 9px
     left 7px
     transition transform 0.5s linear
+
+.sun-toggle-tip
+  position absolute
+  top -35px
+
+.tip
+  text-align: center
+  padding: 20px
 
